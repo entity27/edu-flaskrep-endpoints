@@ -1,0 +1,18 @@
+{% include "header.html" %}
+
+<div class="page-content">
+    <h3>External API interface</h3>
+    <p>
+        Access various data on SITE using it's own API via next app's redirect:
+    </p>
+    <p>
+        API's for check:
+        <br>
+        <a href="{{url_for('index_endpoints')}}">ACTION1:</a> <i>/extapi/request1</i>
+        <br>
+        <a href="{{url_for('static_endpoint')}}">ACTION2</a> <i>/extapi/request2</i>
+    </p>
+    <a href="{{url_for('index')}}">Return</a>
+</div>
+
+{% include "footer.html" %}
