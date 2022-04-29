@@ -1,3 +1,5 @@
+from functools import reduce
+import re
 from app import *
 
 @app.route("/endpoints")
@@ -8,11 +10,15 @@ def index_endpoints():
 def static_endpoint():
     return render_template("endpoints_repr.html", pagename="Static endpoint", endpoint=url_for("static_endpoint"))
 
-@app.route("/endpoints/form_handler", methods=["POST"])
+@app.route("/form_handler", methods=["POST"])
 def form_handler():
-    value = request.form["inputname"] if request.form["inputname"] else "none"
-    url = url_for("dynamic_endpoint", value=value)
-    return redirect(url)
+    rkeys = request.form.keys()
+    if "inputname" in rkeys:
+        value = request.form["inputname"] if request.form["inputname"] else "none"
+        url = url_for("dynamic_endpoint", value=value)
+        return redirect(url)
+    elif "api_request" in rkeys:
+        return redirect(url_for("index_extapi") + f"?{request.form['api_request']}")
 
 @app.route("/endpoints/dynamic/<value>")
 def dynamic_endpoint(value):

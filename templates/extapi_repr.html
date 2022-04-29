@@ -7,10 +7,15 @@
     </p>
     <p>
         API's for check:
-        <br>
-        <a href="{{url_for('index_endpoints')}}">ACTION1:</a> <i>/extapi/request1</i>
-        <br>
-        <a href="{{url_for('static_endpoint')}}">ACTION2</a> <i>/extapi/request2</i>
+        <form action="{{url_for('form_handler')}}" method="post">
+            <label for="api_request">
+                <a href="https://en.wikipedia.org/w/api.php">Wikiperdia API</a>
+            </label>
+            <input name="api_request" value="">
+            <button>Follow</button>
+            <br>
+            <i>(example: action=opensearch&search=api&format=json)</i>
+        </form>
     </p>
     <a href="{{url_for('index')}}">Return</a>
 </div>

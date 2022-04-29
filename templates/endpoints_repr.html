@@ -14,13 +14,9 @@
         <br>
         <a href="{{url_for('static_endpoint')}}">Static endpoint</a>
         <form action="{{url_for('form_handler')}}" method="post">
-            <div>
-              <label">Dynamic endpoint (specify the input):</label>
+              <label for="inputname">Dynamic endpoint (specify the input):</label>
               <input name="inputname" value="">
-            </div>
-            <div>
               <button>Follow</button>
-            </div>
         </form>
     </p>
     <a href="{{url_for('index')}}">Return</a>
